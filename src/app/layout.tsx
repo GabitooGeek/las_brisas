@@ -6,7 +6,10 @@ import { Phone, MapPin, ShieldCheck, Scale, FileText } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Recuperadora Las Brisas | Maderas, Estibas y Plásticos",
-  description: "Comercialización de estibas nuevas y recuperadas, maderas dimensionadas y fletes industriales desde Fontibón, Bogotá D.C. NIT: 80.160.322-3",
+  description: "Comercialización de estibas, maderas dimensionadas, metales y esmeraldas en Fontibón, Bogotá D.C. NIT: 80.160.322-3",
+  icons: {
+    icon: "/icon.svg",
+  },
 };
 
 export default function RootLayout({
@@ -68,6 +71,11 @@ export default function RootLayout({
                 Estibas & Madera
               </Link>
               
+              <Link href="/acabados" className="text-amber-700 hover:text-amber-800 transition flex items-center gap-1 font-bold">
+                <span>🪵 Acabados en Madera</span>
+                <span className="bg-amber-100 text-amber-900 px-1.5 py-0.5 rounded text-[9px]">Taller</span>
+              </Link>
+
               {/* NUEVA DIVISIÓN: METALES Y REMATES */}
               <Link href="/metales-remates" className="text-amber-700 hover:text-amber-800 transition flex items-center gap-1">
                 <span>Metales & Remates</span>
