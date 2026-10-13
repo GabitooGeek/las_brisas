@@ -192,12 +192,12 @@ export default function AcabadosMaderaPage() {
         </div>
 
         <a
-          href="https://wa.me/573223989414?text=Hola%20Lubia,%20tengo%20un%20diseño%20en%20madera%20para%20cotizar"
+          href="https://wa.me/573203100664?text=Hola%20Alexander,%20tengo%20un%20diseño%20en%20madera%20para%20cotizar"
           target="_blank"
           rel="noreferrer"
           className="bg-white hover:bg-slate-100 text-[#1B4332] font-black px-6 py-4 rounded-xl text-xs uppercase tracking-wider font-mono transition text-center shrink-0 shadow-md"
         >
-          Enviar Boceto / Hablar con Lubia
+          Enviar Boceto a Alexander Torres
         </a>
       </div>
 

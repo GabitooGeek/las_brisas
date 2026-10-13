@@ -92,7 +92,7 @@ export default function AdminPatioPage() {
             Mesa de Alistamiento & Despachos de Carga
           </h1>
           <p className="text-xs text-slate-500 mt-1 font-mono">
-            Operación: Alexander Torres (Patio) • Facturación: Lubia Vinchira
+            Gerencia General & Despachos: Alexander Torres (Propietario)
           </p>
         </div>
 

@@ -82,9 +82,7 @@ export default function RootLayout({
               {/* Teléfonos */}
               <span className="flex items-center gap-1.5 font-mono text-[11px]">
                 <Phone className="w-3.5 h-3.5 text-amber-400" />
-                <span>Lubia: <strong className="text-white">322 398 9414</strong></span>
-                <span className="text-slate-600">•</span>
-                <span>Alexander: <strong className="text-white">320 310 0664</strong></span>
+                <span>Alexander Torres (Propietario): <strong className="text-white">320 310 0664</strong></span>
               </span>
             </div>
 
@@ -164,8 +162,7 @@ export default function RootLayout({
             <div>
               <h4 className="text-white font-bold text-sm mb-3">Atención & Despachos</h4>
               <p className="text-slate-400">Patio: Av. Calle 24 #128-15, Fontibón, Bogotá D.C.</p>
-              <p className="text-slate-400 mt-1">Lubia Vinchira: 322 398 9414</p>
-              <p className="text-slate-400">Alexander Torres: 320 310 0664</p>
+              <p className="text-slate-300 font-semibold mt-1">Alexander Torres (Gerencia General): 320 310 0664</p>
               <span className="text-emerald-400 font-mono text-[11px] block mt-2">✓ Flota propia: Turbos y Mulas</span>
             </div>
 
