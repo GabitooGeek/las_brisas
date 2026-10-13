@@ -1,3 +1,4 @@
+import Logo from "@/components/logo";
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
@@ -45,37 +46,53 @@ export default function RootLayout({
         </div>
 
         {/* NAVEGACIÓN PRINCIPAL */}
-        <header className="bg-white/90 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 shadow-xs">
+        <header className="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200 shadow-xs">
           <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
             
-            {/* Logotipo */}
+            {/* Logotipo Corporativo */}
             <Link href="/" className="flex items-center space-x-3">
-              <div className="w-11 h-11 bg-[#1B4332] rounded-xl flex items-center justify-center text-amber-400 font-extrabold text-xl shadow-sm">
-                LB
-              </div>
+              <Logo className="w-12 h-12" />
               <div>
                 <span className="text-2xl font-black tracking-tight text-[#0F172A] block leading-none">
                   LAS BRISAS
                 </span>
                 <span className="text-[10px] font-mono uppercase tracking-widest text-slate-500 block mt-0.5">
-                  Maderas • Estibas • Plásticos
+                  Maderas • Metales • Esmeraldas
                 </span>
               </div>
             </Link>
 
-            {/* Enlaces de Navegación */}
-            <nav className="hidden lg:flex items-center space-x-7 text-sm font-semibold text-slate-700">
-              <Link href="/catalogo" className="hover:text-[#1B4332] transition">Catálogo Técnico</Link>
-              <Link href="/cubicador" className="hover:text-[#1B4332] transition">Calculadora de Maderas</Link>
-              <Link href="/retoma-taller" className="hover:text-[#1B4332] transition">Taller de Retoma</Link>
-              <Link href="/pqrs" className="hover:text-[#1B4332] transition">PQRS / Retracto SIC</Link>
+            {/* Menú de las 3 Divisiones */}
+            <nav className="hidden lg:flex items-center space-x-6 text-xs font-bold uppercase tracking-wider text-slate-700">
+              <Link href="/catalogo" className="hover:text-[#1B4332] transition">
+                Estibas & Madera
+              </Link>
+              
+              {/* NUEVA DIVISIÓN: METALES Y REMATES */}
+              <Link href="/metales-remates" className="text-amber-700 hover:text-amber-800 transition flex items-center gap-1">
+                <span>Metales & Remates</span>
+                <span className="bg-amber-100 text-amber-900 px-1.5 py-0.5 rounded text-[9px]">Industrial</span>
+              </Link>
+
+              {/* NUEVA DIVISIÓN: ESMERALDAS */}
+              <Link href="/esmeraldas" className="text-emerald-800 hover:text-emerald-900 transition flex items-center gap-1">
+                <span>💎 Esmeraldas</span>
+                <span className="bg-emerald-100 text-emerald-900 px-1.5 py-0.5 rounded text-[9px]">RUCOM</span>
+              </Link>
+
+              <Link href="/cubicador" className="hover:text-[#1B4332] transition">
+                Cubicador
+              </Link>
+              <Link href="/pqrs" className="hover:text-[#1B4332] transition">
+                PQRS
+              </Link>
             </nav>
 
-            {/* Botón Acción Checkout */}
+            {/* Acceso Rápido Checkout / Patio */}
             <div className="flex items-center space-x-3">
               <Link
                 href="/checkout"
-                className="bg-[#1B4332] hover:bg-[#143326] text-white px-5 py-2.5 rounded-xl font-semibold text-xs tracking-wide transition shadow-sm"
+                className="bg-[#1B4332] hover:bg-[#143326] text-white px-4 py-2.5 rounded-xl font-bold text-xs tracking-wide transition shadow-sm"
               >
                 Checkout & Flete
               </Link>
