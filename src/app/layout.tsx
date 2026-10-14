@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
 import Logo from "@/components/Logo";
+import SearchBar from "@/components/SearchBar";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { MapPin, Phone, Scale } from "lucide-react";
 
@@ -91,9 +92,10 @@ export default function RootLayout({
 
         {/* NAVEGACIÓN PRINCIPAL */}
         <header className="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200 shadow-xs">
-          <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+          <div className="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center gap-4">
             
-            <Link href="/" className="flex items-center space-x-3">
+            {/* Logotipo */}
+            <Link href="/" className="flex items-center space-x-3 shrink-0">
               <Logo className="w-12 h-12" />
               <div>
                 <span className="text-2xl font-black tracking-tight text-[#0F172A] block leading-none">
@@ -105,25 +107,29 @@ export default function RootLayout({
               </div>
             </Link>
 
-            <nav className="hidden lg:flex items-center space-x-6 text-xs font-bold uppercase tracking-wider text-slate-700">
+            {/* BARRA DE BÚSQUEDA RÁPIDA */}
+            <div className="hidden md:flex flex-1 justify-center px-4">
+              <SearchBar />
+            </div>
+
+            {/* Enlaces de Navegación */}
+            <nav className="hidden xl:flex items-center space-x-5 text-xs font-bold uppercase tracking-wider text-slate-700 shrink-0">
               <Link href="/catalogo" className="hover:text-[#1B4332] transition">
                 Estibas & Madera
               </Link>
-              <Link href="/acabados" className="text-amber-800 hover:text-amber-900 transition flex items-center gap-1">
-                <span>Acabados & Muebles</span>
+              <Link href="/acabados" className="text-amber-800 hover:text-amber-900 transition">
+                Acabados & Muebles
               </Link>
               <Link href="/metales-remates" className="text-slate-800 hover:text-amber-800 transition">
                 Metales & Remates
               </Link>
-              <Link href="/esmeraldas" className="text-emerald-800 hover:text-emerald-900 transition flex items-center gap-1">
-                <span>💎 Esmeraldas</span>
-              </Link>
-              <Link href="/cubicador" className="hover:text-[#1B4332] transition">
-                Cubicador
+              <Link href="/esmeraldas" className="text-emerald-800 hover:text-emerald-900 transition">
+                💎 Esmeraldas
               </Link>
             </nav>
 
-            <div className="flex items-center space-x-3">
+            {/* Botón Checkout */}
+            <div className="flex items-center space-x-3 shrink-0">
               <Link
                 href="/checkout"
                 className="bg-[#1B4332] hover:bg-[#143326] text-white px-4 py-2.5 rounded-xl font-bold text-xs tracking-wide transition shadow-sm"
@@ -131,6 +137,11 @@ export default function RootLayout({
                 Checkout & Flete
               </Link>
             </div>
+          </div>
+
+          {/* Barra de búsqueda en móviles */}
+          <div className="md:hidden px-6 pb-3">
+            <SearchBar />
           </div>
         </header>
 
