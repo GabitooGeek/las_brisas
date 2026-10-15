@@ -335,7 +335,7 @@ export default function HomePage() {
                 Mesas picnic flameadas, sillas tapizadas, muebles y casetas campestres fabricadas a medida.
               </p>
             </div>
-            <a href="https://wa.me/573203100664?text=Hola,%20deseo%20cotizar%20mesas%20picnic/casetas%20de%20madera" target="_blank" className="mt-4 text-xs font-bold text-[#1B4332] flex items-center gap-1 hover:underline">
+            <a href="https://wa.me/573042394091?text=Hola,%20deseo%20cotizar%20mesas%20picnic/casetas%20de%20madera" target="_blank" className="mt-4 text-xs font-bold text-[#1B4332] flex items-center gap-1 hover:underline">
               Pedir diseño especial <ArrowRight className="w-3 h-3" />
             </a>
           </div>

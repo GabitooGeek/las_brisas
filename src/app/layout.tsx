@@ -33,9 +33,9 @@ export default function RootLayout({
             </div>
             
             <div className="flex items-center space-x-3 shrink-0">
-              <a href="tel:3203100664" className="text-amber-400 font-bold flex items-center gap-1 hover:underline">
+              <a href="tel:3042394091" className="text-amber-400 font-bold flex items-center gap-1 hover:underline">
                 <Phone className="w-3 h-3" />
-                <span>320 310 0664</span>
+                <span>304 239 4091</span>
               </a>
             </div>
 
@@ -71,8 +71,8 @@ export default function RootLayout({
             <div>
               <h4 className="text-white font-bold text-xs uppercase mb-2">Contacto Directo</h4>
               <p className="text-slate-300">Alexander Torres (Propietario)</p>
-              <a href="tel:3203100664" className="text-emerald-400 font-mono font-bold block mt-0.5">
-                📞 320 310 0664
+              <a href="tel:3042394091" className="text-emerald-400 font-mono font-bold block mt-0.5">
+                📞 304 239 4091
               </a>
               <p className="text-[11px] text-slate-500 mt-1">Av. Calle 24 #128-15, Fontibón</p>
             </div>

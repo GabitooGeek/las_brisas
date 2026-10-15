@@ -140,10 +140,10 @@ export default function Navbar() {
               Ir a Pagar / Liquidar Flete
             </Link>
             <a
-              href="tel:3203100664"
+              href="tel:3042394091"
               className="w-full bg-slate-100 text-slate-800 py-2.5 rounded-xl flex items-center justify-center gap-2 font-bold"
             >
-              <Phone className="w-3.5 h-3.5 text-emerald-700" /> Llamar a Alexander (320 310 0664)
+              <Phone className="w-3.5 h-3.5 text-emerald-700" /> Llamar a Alexander (304 239 4091)
             </a>
           </div>
         </div>

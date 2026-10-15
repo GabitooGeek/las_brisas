@@ -221,12 +221,12 @@ export default function ProductoDetallePage() {
               </Link>
 
               <a
-                href={`https://wa.me/573203100664?text=Hola%20Alexander,%20deseo%20comprar%20${calculo.qty}%20unidades%20de%20${encodeURIComponent(producto.nombre)}`}
+                href={`https://wa.me/573042394091?text=Hola%20Alexander,%20deseo%20comprar%20${calculo.qty}%20unidades%20de%20${encodeURIComponent(producto.nombre)}`}
                 target="_blank"
                 rel="noreferrer"
                 className="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5 transition font-mono border border-slate-200"
               >
-                <PhoneCall className="w-3.5 h-3.5 text-emerald-700" /> Consultar con Alexander (320 310 0664)
+                <PhoneCall className="w-3.5 h-3.5 text-emerald-700" /> Consultar con Alexander (304 239 4091)
               </a>
             </div>
 
