@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, Suspense } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { INVENTARIO_COMPLETO } from "@/data/productos";
@@ -8,15 +8,13 @@ import {
   Building2, 
   User, 
   Truck, 
-  MapPin, 
   MessageCircle, 
-  FileText, 
-  CheckCircle2, 
-  ShieldCheck,
   ArrowLeft
 } from "lucide-react";
 
-export default function CheckoutPage() {
+export const dynamic = "force-dynamic";
+
+function CheckoutContenido() {
   const searchParams = useSearchParams();
   const skuParam = searchParams.get("sku") || "estiba-estandar-madera-recuperada-a";
   const qtyParam = Number(searchParams.get("qty")) || 100;
@@ -47,7 +45,6 @@ export default function CheckoutPage() {
 
     const subtotalMercancia = cantidad * unitario;
     
-    // Flete aproximado de patio
     let flete = 0;
     if (modalidadEntrega === "FLOTA") {
       flete = cantidad <= 220 ? 180000 : cantidad <= 420 ? 260000 : 650000;
@@ -63,11 +60,10 @@ export default function CheckoutPage() {
     };
   }, [cantidad, producto, modalidadEntrega]);
 
-  // Generar el mensaje estructurado de WhatsApp para Alexander
+  // Mensaje de WhatsApp directo a tu número de pruebas (304 239 4091)
   const enviarPedidoWhatsApp = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Link automático para que Alexander abra e imprima la factura
     const linkFactura = `https://las-brisas.vercel.app/factura?cliente=${encodeURIComponent(nombreCliente || "Cliente Web")}&nit=${encodeURIComponent(documento || "Sin NIT")}&tel=${encodeURIComponent(telefono || "")}&item=${encodeURIComponent(producto.nombre)}&cant=${cantidad}&unit=${liquidacion.unitario}&flete=${liquidacion.flete}&dir=${encodeURIComponent(direccion ? `${municipio} - ${direccion}` : municipio)}`;
 
     const mensaje = `🚚 *NUEVO PEDIDO DESDE LA WEB - LAS BRISAS*
@@ -75,7 +71,7 @@ export default function CheckoutPage() {
 👤 *Cliente:* ${nombreCliente || "Cliente Web"}
 🆔 *Documento/NIT:* ${documento || "No especificado"}
 📞 *Teléfono:* ${telefono || "No especificado"}
-${deseaFactura ? `📄 *Requiere Factura DIAN:* Sí (${emailFactura || "Sin correo"})` : "📄 *Factura:* No requerida"}
+${deseaFactura ? `📄 *Requiere Factura:* Sí (${emailFactura || "Sin correo"})` : "📄 *Factura:* No requerida"}
 
 📦 *PRODUCTO SOLICITADO:*
 • ${producto.nombre}
@@ -103,7 +99,6 @@ Hola Alexander, acabo de armar este pedido en la página. Por favor envíame los
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
       
-      {/* Volver */}
       <div className="mb-6">
         <Link href="/catalogo" className="text-xs font-mono text-slate-500 hover:text-[#1B4332] flex items-center gap-1 font-semibold">
           <ArrowLeft className="w-3.5 h-3.5" /> Volver al Catálogo
@@ -118,16 +113,15 @@ Hola Alexander, acabo de armar este pedido en la página. Por favor envíame los
           Confirmar Pedido & Coordinar Pago
         </h1>
         <p className="text-xs sm:text-sm text-slate-600 mt-1">
-          Complete los datos para remitir su orden directamente al WhatsApp de <strong>Alexander Torres (Propietario)</strong> para coordinar la cuenta de transferencia y el despacho.
+          Complete los datos para remitir su orden directamente al WhatsApp de <strong>Alexander Torres (Propietario)</strong>.
         </p>
       </div>
 
       <form onSubmit={enviarPedidoWhatsApp} className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         
-        {/* COLUMNA IZQUIERDA: DATOS Y LOGÍSTICA (7 COLUMNAS) */}
+        {/* COLUMNA IZQUIERDA */}
         <div className="lg:col-span-7 space-y-6">
           
-          {/* DATOS DEL CLIENTE */}
           <div className="bg-white p-5 sm:p-6 rounded-3xl border border-slate-200 shadow-xs">
             <h2 className="font-bold text-slate-900 text-sm sm:text-base mb-4 flex items-center gap-2">
               <User className="w-4 h-4 text-[#1B4332]" /> Datos de Contacto y Facturación
@@ -198,7 +192,6 @@ Hola Alexander, acabo de armar este pedido en la página. Por favor envíame los
                 </div>
               </div>
 
-              {/* FACTURA ELECTRÓNICA DIAN */}
               <div className="pt-2">
                 <label className="flex items-center space-x-2 cursor-pointer">
                   <input
@@ -208,14 +201,14 @@ Hola Alexander, acabo de armar este pedido en la página. Por favor envíame los
                     className="w-4 h-4 rounded accent-[#1B4332]"
                   />
                   <span className="font-semibold text-slate-800">
-                    ¿Requiere Factura Electrónica DIAN?
+                    ¿Requiere Factura de Venta / Remisión?
                   </span>
                 </label>
 
                 {deseaFactura && (
                   <div className="mt-2 pl-6">
                     <label className="text-[11px] text-slate-500 block mb-1">
-                      Correo para envío de la factura electrónica tras el pago:
+                      Correo para envío de la factura tras el pago:
                     </label>
                     <input
                       type="email"
@@ -230,7 +223,6 @@ Hola Alexander, acabo de armar este pedido en la página. Por favor envíame los
             </div>
           </div>
 
-          {/* LOGÍSTICA DE ENTREGA */}
           <div className="bg-white p-5 sm:p-6 rounded-3xl border border-slate-200 shadow-xs">
             <h2 className="font-bold text-slate-900 text-sm sm:text-base mb-4 flex items-center gap-2">
               <Truck className="w-4 h-4 text-[#1B4332]" /> Modalidad de Entrega
@@ -265,7 +257,7 @@ Hola Alexander, acabo de armar este pedido en la página. Por favor envíame los
                   <label className="font-semibold text-slate-700 block mb-1">Municipio / Destino:</label>
                   <input
                     type="text"
-                    placeholder="Ej: Funza, Mosquera, Madrid, Bogotá Norte..."
+                    placeholder="Ej: Funza, Mosquera, Madrid, Bogotá..."
                     value={municipio}
                     onChange={(e) => setMunicipio(e.target.value)}
                     className="w-full border border-slate-300 rounded-xl p-2.5 text-sm focus:outline-[#1B4332]"
@@ -275,7 +267,7 @@ Hola Alexander, acabo de armar este pedido en la página. Por favor envíame los
                   <label className="font-semibold text-slate-700 block mb-1">Dirección de Entrega:</label>
                   <input
                     type="text"
-                    placeholder="Ej: Zona Franca Bodega 12 o Vereda La Florida"
+                    placeholder="Ej: Parque Industrial Bodega 4"
                     value={direccion}
                     onChange={(e) => setDireccion(e.target.value)}
                     className="w-full border border-slate-300 rounded-xl p-2.5 text-sm focus:outline-[#1B4332]"
@@ -287,7 +279,7 @@ Hola Alexander, acabo de armar este pedido en la página. Por favor envíame los
 
         </div>
 
-        {/* COLUMNA DERECHA: RESUMEN Y BOTÓN WHATSAPP (5 COLUMNAS) */}
+        {/* COLUMNA DERECHA */}
         <div className="lg:col-span-5 space-y-6">
           <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-xs sticky top-24">
             
@@ -334,7 +326,6 @@ Hola Alexander, acabo de armar este pedido en la página. Por favor envíame los
               </span>
             </div>
 
-            {/* BOTÓN DIRECTO A WHATSAPP DE ALEXANDER */}
             <button
               type="submit"
               className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold py-4 rounded-2xl text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition shadow-md font-mono"
@@ -344,9 +335,9 @@ Hola Alexander, acabo de armar este pedido en la página. Por favor envíame los
             </button>
 
             <div className="mt-4 p-3 bg-slate-50 rounded-xl border border-slate-200 text-[11px] text-slate-600 space-y-1">
-              <p>✓ Alexander recibe su pedido exacto en su chat.</p>
-              <p>✓ Le remite el número de cuenta de Bancolombia.</p>
-              <p>✓ Al confirmar el pago, emite la factura electrónica a su correo.</p>
+              <p>✓ El pedido llega directo a su chat personal.</p>
+              <p>✓ Alexander coordina la cuenta de transferencia.</p>
+              <p>✓ Genera la factura / remisión física con 1 clic.</p>
             </div>
 
           </div>
@@ -355,5 +346,13 @@ Hola Alexander, acabo de armar este pedido en la página. Por favor envíame los
       </form>
 
     </div>
+  );
+}
+
+export default function CheckoutPage() {
+  return (
+    <Suspense fallback={<div className="p-10 text-center font-mono">Cargando checkout...</div>}>
+      <CheckoutContenido />
+    </Suspense>
   );
 }
