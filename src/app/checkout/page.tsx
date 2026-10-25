@@ -60,16 +60,14 @@ function CheckoutContenido() {
     };
   }, [cantidad, producto, modalidadEntrega]);
 
-  // Mensaje de WhatsApp directo a tu número de pruebas (304 239 4091)
+  // Mensaje limpio: Solo solicitud de pedido y cuenta bancaria
   const enviarPedidoWhatsApp = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const linkFactura = `https://las-brisas.vercel.app/factura?cliente=${encodeURIComponent(nombreCliente || "Cliente Web")}&nit=${encodeURIComponent(documento || "Sin NIT")}&tel=${encodeURIComponent(telefono || "")}&item=${encodeURIComponent(producto.nombre)}&cant=${cantidad}&unit=${liquidacion.unitario}&flete=${liquidacion.flete}&dir=${encodeURIComponent(direccion ? `${municipio} - ${direccion}` : municipio)}`;
-
-    const mensaje = `🚚 *NUEVO PEDIDO DESDE LA WEB - LAS BRISAS*
+    const mensaje = `🚚 *NUEVA SOLICITUD DE PEDIDO - LAS BRISAS*
 ----------------------------------------
-👤 *Cliente:* ${nombreCliente || "Cliente Web"}
-🆔 *Documento/NIT:* ${documento || "No especificado"}
+👤 *Cliente / Empresa:* ${nombreCliente || "Cliente Web"}
+🆔 *Documento / NIT:* ${documento || "No especificado"}
 📞 *Teléfono:* ${telefono || "No especificado"}
 ${deseaFactura ? `📄 *Requiere Factura:* Sí (${emailFactura || "Sin correo"})` : "📄 *Factura:* No requerida"}
 
@@ -82,15 +80,12 @@ ${deseaFactura ? `📄 *Requiere Factura:* Sí (${emailFactura || "Sin correo"})
 • Modalidad: ${modalidadEntrega === "FLOTA" ? "Despacho con Flota Las Brisas" : "Retiro en Patio Fontibón"}
 ${modalidadEntrega === "FLOTA" ? `• Destino: ${municipio} - ${direccion}` : "• Retiro directo: Av. Calle 24 #128-15"}
 
-💰 *LIQUIDACIÓN ESTIMADA:*
+💰 *VALOR ESTIMADO:*
 • Mercancía: $${liquidacion.subtotalMercancia.toLocaleString("es-CO")} COP
-• Flete: $${liquidacion.flete.toLocaleString("es-CO")} COP
-👉 *TOTAL A PAGAR: $${liquidacion.total.toLocaleString("es-CO")} COP*
+• Flete de Transporte: $${liquidacion.flete.toLocaleString("es-CO")} COP
+👉 *TOTAL A TRANSFERIR: $${liquidacion.total.toLocaleString("es-CO")} COP*
 ----------------------------------------
-📄 *GENERAR FACTURA / REMISIÓN EN 1 CLIC:*
-${linkFactura}
-----------------------------------------
-Hola Alexander, acabo de armar este pedido en la página. Por favor envíame los datos de la cuenta bancaria para transferir.`;
+Hola Alexander, acabo de armar este pedido en la página web. Por favor confírmame disponibilidad y envíame los datos de la cuenta bancaria para hacer la transferencia.`;
 
     const url = `https://wa.me/573042394091?text=${encodeURIComponent(mensaje)}`;
     window.open(url, "_blank");
