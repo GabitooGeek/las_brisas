@@ -53,27 +53,43 @@ export default function RootLayout({
         {/* BOTÓN FLOTANTE */}
         <WhatsAppButton />
 
-        {/* REDES SOCIALES OFICIALES EN EL FOOTER */}
-        <div>
-          <h4 className="text-white font-bold text-xs uppercase mb-3">Síguenos en Redes</h4>
-          <div className="space-y-2">
+        {/* COLUMNA DE REDES SOCIALES ESTILIZADA (CON MARGEN Y TARJETAS) */}
+        <div className="space-y-3 px-2 sm:px-0">
+          <h4 className="text-white font-bold text-xs uppercase tracking-wider mb-3 font-mono">
+            Redes Oficiales
+          </h4>
+          
+          <div className="flex flex-col gap-2">
+            {/* Tarjeta Facebook */}
             <a
               href="https://www.facebook.com/profile.php?id=61595407978912"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center space-x-2.5 text-slate-400 hover:text-white transition"
+              className="flex items-center gap-3 p-2.5 rounded-2xl bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 text-slate-300 hover:text-white transition shadow-sm group"
             >
-              <span className="w-6 h-6 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-xs shrink-0">f</span>
-              <span className="truncate">Facebook Las Brisas</span>
+              <div className="w-8 h-8 bg-[#1877F2] text-white rounded-xl flex items-center justify-center font-bold text-xs shrink-0 shadow-md group-hover:scale-105 transition">
+                f
+              </div>
+              <div className="truncate">
+                <span className="text-xs font-bold text-white block leading-tight">Facebook</span>
+                <span className="text-[11px] text-slate-400 block truncate">Recuperadora Las Brisas</span>
+              </div>
             </a>
+
+            {/* Tarjeta Instagram */}
             <a
               href="https://www.instagram.com/recuperaradoralasbrisas/"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center space-x-2.5 text-slate-400 hover:text-white transition"
+              className="flex items-center gap-3 p-2.5 rounded-2xl bg-slate-800/60 hover:bg-slate-800 border border-slate-700/60 text-slate-300 hover:text-white transition shadow-sm group"
             >
-              <span className="w-6 h-6 bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600 text-white rounded-lg flex items-center justify-center font-bold text-[10px] shrink-0">IG</span>
-              <span className="truncate">@recuperaradoralasbrisas</span>
+              <div className="w-8 h-8 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white rounded-xl flex items-center justify-center font-bold text-[11px] shrink-0 shadow-md group-hover:scale-105 transition">
+                IG
+              </div>
+              <div className="truncate">
+                <span className="text-xs font-bold text-white block leading-tight">Instagram</span>
+                <span className="text-[11px] text-slate-400 block truncate">@recuperaradoralasbrisas</span>
+              </div>
             </a>
           </div>
         </div>
