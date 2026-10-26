@@ -180,7 +180,7 @@ export default function CatalogoPage() {
           <div className="bg-amber-50 p-4 rounded-2xl border border-amber-200 text-xs text-amber-950">
             <span className="font-bold block mb-1">¿Cotización Especial por Volumen?</span>
             <p className="text-[11px] text-slate-600 mb-2">Para viajes de camión completo o tractomula comuníquese con el dueño:</p>
-            <a href="tel:3042394091" className="font-mono font-bold text-emerald-800 block">📞 Alexander Torres: 304 239 4091</a>
+            <a href="tel:3203100664" className="font-mono font-bold text-emerald-800 block">📞 Alexander Torres: 320 310 0664</a>
           </div>
         </aside>
 

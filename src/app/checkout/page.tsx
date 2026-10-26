@@ -93,7 +93,7 @@ ${linkAdminAutoFill}
 ----------------------------------------
 Hola Alexander, acabo de armar este pedido en la página. Por favor envíame los datos de la cuenta bancaria para hacer la transferencia.`;
 
-    const url = `https://wa.me/573042394091?text=${encodeURIComponent(mensaje)}`;
+    const url = `https://wa.me/573203100664?text=${encodeURIComponent(mensaje)}`;
     window.open(url, "_blank");
   };
 

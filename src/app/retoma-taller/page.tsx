@@ -81,7 +81,7 @@ export default function RetomaTallerPage() {
 
           <div className="pt-4 flex flex-col sm:flex-row gap-3 justify-center">
             <a
-              href={`https://wa.me/573042394091?text=Hola%20Alexander,%20acabo%20de%20solicitar%20en%20la%20web%20la%20recogida/reparación%20de%20${cantidad}%20estibas`}
+              href={`https://wa.me/573203100664?text=Hola%20Alexander,%20acabo%20de%20solicitar%20en%20la%20web%20la%20recogida/reparación%20de%20${cantidad}%20estibas`}
               target="_blank"
               rel="noreferrer"
               className="bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-bold py-3 px-6 rounded-xl flex items-center justify-center gap-2 transition"

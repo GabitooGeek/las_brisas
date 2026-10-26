@@ -6,7 +6,7 @@ import { MessageCircle } from "lucide-react";
 // TUS REDES SOCIALES OFICIALES:
 const LINK_FACEBOOK = "https://www.facebook.com/profile.php?id=61595407978912";
 const LINK_INSTAGRAM = "https://www.instagram.com/recuperaradoralasbrisas/";
-const LINK_WHATSAPP = "https://wa.me/573042394091?text=Hola%20Alexander,%20contacto%20desde%20la%20plataforma%20de%20Las%20Brisas";
+const LINK_WHATSAPP = "https://wa.me/573203100664?text=Hola%20Alexander,%20contacto%20desde%20la%20plataforma%20de%20Las%20Brisas";
 
 export default function WhatsAppButton() {
   return (

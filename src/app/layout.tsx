@@ -33,9 +33,9 @@ export default function RootLayout({
             </div>
             
             <div className="flex items-center space-x-3 shrink-0">
-              <a href="tel:3042394091" className="text-amber-400 font-bold flex items-center gap-1 hover:underline">
+              <a href="tel:3203100664" className="text-amber-400 font-bold flex items-center gap-1 hover:underline">
                 <Phone className="w-3 h-3" />
-                <span>304 239 4091</span>
+                <span>320 310 0664</span>
               </a>
             </div>
 
@@ -75,8 +75,8 @@ export default function RootLayout({
                 Atención en Patio
               </h4>
               <p className="text-slate-300 font-medium">Alexander Torres (Propietario)</p>
-              <a href="tel:3042394091" className="text-emerald-400 font-mono font-bold block mt-1 hover:underline">
-                📞 304 239 4091
+              <a href="tel:3203100664" className="text-emerald-400 font-mono font-bold block mt-1 hover:underline">
+                📞 320 310 0664
               </a>
               <p className="text-slate-400 text-xs mt-1">Av. Calle 24 #128-15, Fontibón</p>
               <span className="text-amber-400 font-mono text-[10px] block mt-2">✓ Despacho en Turbos y Mulas</span>

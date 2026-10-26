@@ -164,7 +164,7 @@ export default function AcabadosMaderaPage() {
                 </div>
 
                 <a
-                  href={`https://wa.me/573042394091?text=Hola%20Alexander,%20deseo%20cotizar%20el%20proyecto:%20${encodeURIComponent(proy.titulo)}`}
+                  href={`https://wa.me/573203100664?text=Hola%20Alexander,%20deseo%20cotizar%20el%20proyecto:%20${encodeURIComponent(proy.titulo)}`}
                   target="_blank"
                   rel="noreferrer"
                   className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-4 py-3 rounded-xl text-xs flex items-center gap-1.5 transition font-mono shadow-sm"
@@ -192,7 +192,7 @@ export default function AcabadosMaderaPage() {
         </div>
 
         <a
-          href="https://wa.me/573042394091?text=Hola%20Alexander,%20tengo%20un%20diseño%20en%20madera%20para%20cotizar"
+          href="https://wa.me/573203100664?text=Hola%20Alexander,%20tengo%20un%20diseño%20en%20madera%20para%20cotizar"
           target="_blank"
           rel="noreferrer"
           className="bg-white hover:bg-slate-100 text-[#1B4332] font-black px-6 py-4 rounded-xl text-xs uppercase tracking-wider font-mono transition text-center shrink-0 shadow-md"

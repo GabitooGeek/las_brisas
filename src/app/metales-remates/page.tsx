@@ -107,7 +107,7 @@ export default function MetalesRematesPage() {
             </div>
 
             <a
-              href={`https://wa.me/573042394091?text=Hola%20Alexander,%20tengo%20${kilos}%20kg%20de%20${material}%20para%20vender%20en%20patio`}
+              href={`https://wa.me/573203100664?text=Hola%20Alexander,%20tengo%20${kilos}%20kg%20de%20${material}%20para%20vender%20en%20patio`}
               target="_blank"
               rel="noreferrer"
               className="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-5 py-3 rounded-xl text-xs uppercase font-mono transition text-center"
@@ -148,7 +148,7 @@ export default function MetalesRematesPage() {
 
           <div className="pt-6 border-t border-amber-200">
             <a
-              href="https://wa.me/573042394091?text=Hola%20Alexander,%20tenemos%20un%20remate/liquidación%20industrial%20para%20ofrecer"
+              href="https://wa.me/573203100664?text=Hola%20Alexander,%20tenemos%20un%20remate/liquidación%20industrial%20para%20ofrecer"
               target="_blank"
               rel="noreferrer"
               className="w-full bg-[#1B4332] hover:bg-[#143326] text-white font-bold py-3 px-4 rounded-xl text-xs uppercase font-mono flex items-center justify-center gap-2 transition"

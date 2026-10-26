@@ -167,7 +167,7 @@ export default function EsmeraldasPage() {
               </div>
 
               <a
-                href={`https://wa.me/573042394091?text=Hola%20Alexander,%20solicito%20inspección%20y%20certificado%20de%20la%20esmeralda%20${item.codigo}`}
+                href={`https://wa.me/573203100664?text=Hola%20Alexander,%20solicito%20inspección%20y%20certificado%20de%20la%20esmeralda%20${item.codigo}`}
                 target="_blank"
                 rel="noreferrer"
                 className="w-full bg-[#1B4332] hover:bg-[#143326] text-white text-xs font-bold py-2.5 rounded-xl flex items-center justify-center gap-1.5 transition font-mono"

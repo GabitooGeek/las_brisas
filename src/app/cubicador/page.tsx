@@ -183,12 +183,12 @@ export default function CubicadorPage() {
 
           <div className="pt-4 border-t border-slate-800 space-y-2 mt-4">
             <a
-              href={`https://wa.me/573042394091?text=Hola%20Alexander,%20cotizo%20un%20volumen%20de%20${resultado.m3Total}%20m3%20(${resultado.ptTotal}%20PT)%20de%20madera`}
+              href={`https://wa.me/573203100664?text=Hola%20Alexander,%20cotizo%20un%20volumen%20de%20${resultado.m3Total}%20m3%20(${resultado.ptTotal}%20PT)%20de%20madera`}
               target="_blank"
               rel="noreferrer"
               className="w-full bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-bold py-3.5 px-4 rounded-xl flex items-center justify-center gap-2 transition"
             >
-              <PhoneCall className="w-4 h-4" /> Cotizar Pedido con Alexander Torres (304 239 4091)
+              <PhoneCall className="w-4 h-4" /> Cotizar Pedido con Alexander Torres (320 310 0664)
             </a>
           </div>
 

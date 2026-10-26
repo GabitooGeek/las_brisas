@@ -12,7 +12,7 @@ function FacturaContenido() {
   // Parámetros leídos de la URL del pedido
   const cliente = searchParams.get("cliente") || "CLIENTE GENERAL";
   const nit = searchParams.get("nit") || "222222222222";
-  const telefono = searchParams.get("tel") || "304 239 4091";
+  const telefono = searchParams.get("tel") || "320 310 0664";
   const producto = searchParams.get("item") || "Estibas de Madera Grado A";
   const cantidad = Number(searchParams.get("cant")) || 100;
   const precioUnitario = Number(searchParams.get("unit")) || 29440;
@@ -70,7 +70,7 @@ function FacturaContenido() {
                 Av. Calle 24 No. 128-15, Fontibón - Las Brisas, Bogotá D.C.
               </p>
               <p className="text-xs font-mono text-emerald-800 font-bold">
-                WhatsApp / Celular: 304 239 4091
+                WhatsApp / Celular: 320 310 0664
               </p>
             </div>
           </div>
