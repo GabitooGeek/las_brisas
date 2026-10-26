@@ -53,6 +53,31 @@ export default function RootLayout({
         {/* BOTÓN FLOTANTE */}
         <WhatsAppButton />
 
+        {/* REDES SOCIALES OFICIALES EN EL FOOTER */}
+        <div>
+          <h4 className="text-white font-bold text-xs uppercase mb-3">Síguenos en Redes</h4>
+          <div className="space-y-2">
+            <a
+              href="https://www.facebook.com/profile.php?id=61595407978912"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center space-x-2.5 text-slate-400 hover:text-white transition"
+            >
+              <span className="w-6 h-6 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold text-xs shrink-0">f</span>
+              <span className="truncate">Facebook Las Brisas</span>
+            </a>
+            <a
+              href="https://www.instagram.com/recuperaradoralasbrisas/"
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center space-x-2.5 text-slate-400 hover:text-white transition"
+            >
+              <span className="w-6 h-6 bg-gradient-to-tr from-yellow-500 via-pink-500 to-purple-600 text-white rounded-lg flex items-center justify-center font-bold text-[10px] shrink-0">IG</span>
+              <span className="truncate">@recuperaradoralasbrisas</span>
+            </a>
+          </div>
+        </div>
+
         {/* FOOTER ADAPTADO A CELULARES */}
         <footer className="bg-[#0F172A] text-slate-400 py-10 px-5 border-t border-slate-800 text-xs mt-12">
           <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 pb-6 border-b border-slate-800">
