@@ -60,9 +60,12 @@ function CheckoutContenido() {
     };
   }, [cantidad, producto, modalidadEntrega]);
 
-  // Mensaje limpio: Solo solicitud de pedido y cuenta bancaria
+  // Mensaje de WhatsApp con enlace de auto-llenado exclusivo para Alexander
   const enviarPedidoWhatsApp = (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Enlace que auto-llena el panel de Alexander
+    const linkAdminAutoFill = `https://las-brisas.vercel.app/admin?cliente=${encodeURIComponent(nombreCliente || "Cliente Web")}&nit=${encodeURIComponent(documento || "Sin NIT")}&tel=${encodeURIComponent(telefono || "")}&item=${encodeURIComponent(producto.nombre)}&cant=${cantidad}&unit=${liquidacion.unitario}&flete=${liquidacion.flete}&dir=${encodeURIComponent(direccion ? `${municipio} - ${direccion}` : municipio)}`;
 
     const mensaje = `🚚 *NUEVA SOLICITUD DE PEDIDO - LAS BRISAS*
 ----------------------------------------
@@ -85,7 +88,10 @@ ${modalidadEntrega === "FLOTA" ? `• Destino: ${municipio} - ${direccion}` : "�
 • Flete de Transporte: $${liquidacion.flete.toLocaleString("es-CO")} COP
 👉 *TOTAL A TRANSFERIR: $${liquidacion.total.toLocaleString("es-CO")} COP*
 ----------------------------------------
-Hola Alexander, acabo de armar este pedido en la página web. Por favor confírmame disponibilidad y envíame los datos de la cuenta bancaria para hacer la transferencia.`;
+🔐 *ADMINISTRACIÓN (SOLO ALEXANDER - FACTURAR EN 1 CLIC):*
+${linkAdminAutoFill}
+----------------------------------------
+Hola Alexander, acabo de armar este pedido en la página. Por favor envíame los datos de la cuenta bancaria para hacer la transferencia.`;
 
     const url = `https://wa.me/573042394091?text=${encodeURIComponent(mensaje)}`;
     window.open(url, "_blank");
