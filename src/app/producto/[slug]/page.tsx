@@ -1,5 +1,7 @@
 "use client";
 
+import { useCart } from "@/context/CartContext";
+import { ShoppingBag } from "lucide-react";
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
@@ -16,6 +18,7 @@ import {
 export default function ProductoDetallePage() {
   const params = useParams();
   const slug = (params?.slug as string) || "estiba-estandar-madera-recuperada-a";
+  const { agregarAlCarrito } = useCart();
 
   // Busca el producto en la base de datos o usa el primero por defecto
   const producto = INVENTARIO_COMPLETO[slug] || INVENTARIO_COMPLETO["estiba-estandar-madera-recuperada-a"];
@@ -229,6 +232,25 @@ export default function ProductoDetallePage() {
                 <PhoneCall className="w-3.5 h-3.5 text-emerald-700" /> Consultar con Alexander (320 310 0664)
               </a>
             </div>
+
+            <button
+              type="button"
+              onClick={() => {
+                agregarAlCarrito({
+                  id: producto.id,
+                  slug: producto.slug,
+                  nombre: producto.nombre,
+                  precio: calculo.unitario,
+                  cantidad: calculo.qty,
+                  imagen: producto.imagen,
+                  dimensiones: producto.dimensiones,
+                  unidad: producto.unidad,
+                });
+              }}
+              className="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold py-3.5 rounded-xl text-xs tracking-wider uppercase text-center flex items-center justify-center gap-2 transition shadow-sm font-mono"
+            >
+              <ShoppingBag className="w-4 h-4" /> Agregar al Carrito ({calculo.qty} {producto.unidad})
+            </button>
 
           </div>
         </div>

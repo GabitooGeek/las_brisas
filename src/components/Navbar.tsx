@@ -5,9 +5,12 @@ import Link from "next/link";
 import Logo from "@/components/Logo";
 import SearchBar from "@/components/SearchBar";
 import { Menu, X, Phone, ArrowRight, ShieldCheck } from "lucide-react";
+import { useCart } from "@/context/CartContext";
+import { ShoppingCart } from "lucide-react";
 
 export default function Navbar() {
   const [menuAbierto, setMenuAbierto] = useState(false);
+  const { totalItems, setDrawerAbierto } = useCart();
 
   return (
     <header className="bg-white/95 backdrop-blur-md sticky top-0 z-40 border-b border-slate-200 shadow-xs">
@@ -70,6 +73,20 @@ export default function Navbar() {
         </div>
 
       </div>
+
+      {/* BOTÓN DEL CARRITO CON CONTADOR */}
+      <button
+        onClick={() => setDrawerAbierto(true)}
+        className="relative p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 transition flex items-center justify-center"
+        aria-label="Ver carrito"
+      >
+        <ShoppingCart className="w-5 h-5 text-[#1B4332]" />
+        {totalItems > 0 && (
+          <span className="absolute -top-1.5 -right-1.5 bg-amber-500 text-slate-950 text-[10px] font-mono font-black w-5 h-5 rounded-full flex items-center justify-center shadow-sm">
+            {totalItems}
+          </span>
+        )}
+      </button>
 
       {/* BARRA DE BÚSQUEDA EN CELULARES */}
       <div className="md:hidden px-4 pb-2.5">

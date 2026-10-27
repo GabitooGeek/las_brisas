@@ -5,6 +5,8 @@ import Navbar from "@/components/Navbar";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Logo from "@/components/Logo";
 import { Phone, Scale } from "lucide-react";
+import { CartProvider } from "@/context/CartContext";
+import CartDrawer from "@/components/CartDrawer";
 
 export const metadata: Metadata = {
   title: "Recuperadora Las Brisas | Maderas, Estibas, Metales y Esmeraldas",
@@ -22,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className="min-h-screen flex flex-col justify-between antialiased overflow-x-hidden bg-[#F8FAFC]">
-        
+        <CartProvider>
         {/* BARRA SUPERIOR COMPACTA */}
         <div className="bg-[#0F172A] text-slate-300 text-[11px] py-1.5 px-4 border-b border-slate-800 font-mono">
           <div className="max-w-7xl mx-auto flex justify-between items-center gap-2">
@@ -119,7 +121,7 @@ export default function RootLayout({
             <span>Fontibón - Bogotá D.C., Colombia</span>
           </div>
         </footer>
-
+        </CartProvider>
       </body>
     </html>
   );
