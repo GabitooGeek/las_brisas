@@ -28,12 +28,12 @@ export default function Navbar() {
           </div>
         </Link>
 
-        {/* BARRA DE BÚSQUEDA (PC) */}
+        {/* BÚSQUEDA (PC) */}
         <div className="hidden md:flex flex-1 justify-center px-4">
           <SearchBar />
         </div>
 
-        {/* ENLACES DEL MENÚ (PC) */}
+        {/* MENÚ PC */}
         <nav className="hidden xl:flex items-center space-x-5 text-xs font-bold uppercase tracking-wider text-slate-700 shrink-0">
           <Link href="/catalogo" className="hover:text-[#1B4332] transition">
             Estibas & Madera
@@ -52,30 +52,25 @@ export default function Navbar() {
           </Link>
         </nav>
 
-        {/* ZONA DE ACCIONES DERECHA: CARRITO + CHECKOUT */}
-        <div className="flex items-center space-x-3 shrink-0">
+        {/* ACCIÓN PRINCIPAL DERECHA: SOLO EL CARRITO INTELIGENTE */}
+        <div className="flex items-center space-x-2.5 shrink-0">
           
-          {/* BOTÓN DEL CARRITO EN LA POSICIÓN OFICIAL (ARRIBA A LA DERECHA) */}
           <button
+            type="button"
             onClick={() => setDrawerAbierto(true)}
-            className="relative p-2.5 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-800 transition flex items-center justify-center border border-slate-200 group"
-            aria-label="Ver Carrito de Compras"
+            className="relative p-2.5 sm:px-4 sm:py-2.5 rounded-2xl bg-[#1B4332] hover:bg-[#143326] text-white transition flex items-center gap-2 shadow-xs group"
+            aria-label="Ver Canasta de Compras"
           >
-            <ShoppingCart className="w-5 h-5 text-[#1B4332] group-hover:scale-110 transition" />
+            <ShoppingCart className="w-5 h-5 text-amber-400 group-hover:scale-110 transition" />
+            <span className="hidden sm:inline font-bold text-xs">
+              Carrito
+            </span>
             {totalItems > 0 && (
-              <span className="absolute -top-1.5 -right-1.5 bg-amber-500 text-slate-950 text-[10px] font-mono font-black min-w-5 h-5 px-1 rounded-full flex items-center justify-center shadow-md animate-pulse">
+              <span className="bg-amber-500 text-slate-950 text-[11px] font-mono font-black min-w-5 h-5 px-1.5 rounded-full flex items-center justify-center shadow-md">
                 {totalItems}
               </span>
             )}
           </button>
-
-          {/* BOTÓN CHECKOUT */}
-          <Link
-            href="/checkout"
-            className="hidden sm:inline-block bg-[#1B4332] hover:bg-[#143326] text-white px-4 py-2.5 rounded-xl font-bold text-xs transition shadow-xs"
-          >
-            Checkout
-          </Link>
 
           {/* BOTÓN HAMBURGUESA (MÓVILES) */}
           <button
@@ -134,13 +129,15 @@ export default function Navbar() {
           </Link>
 
           <div className="pt-3 border-t border-slate-100 space-y-2 font-mono text-xs">
-            <Link
-              href="/checkout"
-              onClick={() => setMenuAbierto(false)}
+            <button
+              onClick={() => {
+                setMenuAbierto(false);
+                setDrawerAbierto(true);
+              }}
               className="w-full bg-[#1B4332] text-white py-3 rounded-xl block text-center font-bold"
             >
-              Ir a Pagar / Liquidar Flete
-            </Link>
+              Ver Carrito ({totalItems} items)
+            </button>
             <a
               href="tel:3203100664"
               className="w-full bg-slate-100 text-slate-800 py-2.5 rounded-xl flex items-center justify-center gap-2 font-bold"
