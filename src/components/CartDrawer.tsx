@@ -12,7 +12,6 @@ export default function CartDrawer() {
 
   return (
     <div className="fixed inset-0 z-50 overflow-hidden font-sans">
-      {/* Fondo oscuro con desenfoque */}
       <div 
         onClick={() => setDrawerAbierto(false)} 
         className="absolute inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity" 
@@ -21,52 +20,52 @@ export default function CartDrawer() {
       <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
         <div className="w-screen max-w-md bg-white shadow-2xl flex flex-col justify-between border-l border-slate-200">
           
-          {/* CABECERA */}
-          <div className="p-6 border-b border-slate-100 flex justify-between items-center bg-slate-50">
+          {/* CABECERA DEL CARRITO */}
+          <div className="p-5 border-b border-slate-100 flex justify-between items-center bg-slate-50">
             <div className="flex items-center gap-2">
               <ShoppingBag className="w-5 h-5 text-[#1B4332]" />
               <h3 className="font-extrabold text-slate-900 text-base">Carrito de Compras</h3>
               <span className="bg-[#1B4332] text-white text-[10px] font-mono font-bold px-2 py-0.5 rounded-full">
-                {totalItems} items
+                {totalItems} uds
               </span>
             </div>
             <button 
               onClick={() => setDrawerAbierto(false)}
-              className="text-slate-400 hover:text-slate-700 p-1 rounded-xl"
+              className="text-slate-400 hover:text-slate-700 p-1.5 rounded-xl"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
 
           {/* LISTA DE PRODUCTOS */}
-          <div className="flex-1 overflow-y-auto p-6 space-y-4">
+          <div className="flex-1 overflow-y-auto p-5 space-y-3">
             {items.length === 0 ? (
               <div className="text-center py-16 space-y-3">
                 <div className="w-16 h-16 bg-slate-100 text-slate-400 rounded-full flex items-center justify-center mx-auto text-2xl">
                   🛒
                 </div>
-                <h4 className="font-bold text-slate-800 text-base">Su carrito está vacío</h4>
+                <h4 className="font-bold text-slate-800 text-base">El carrito está vacío</h4>
                 <p className="text-xs text-slate-500 max-w-xs mx-auto">
-                  Explore nuestro catálogo de estibas, maderas dimensionadas, postes y muebles para agregar productos al camión.
+                  Agregue estibas, postes, tablas o muebles desde el catálogo.
                 </p>
                 <Link
                   href="/catalogo"
                   onClick={() => setDrawerAbierto(false)}
                   className="inline-block mt-2 bg-[#1B4332] text-white text-xs font-bold py-2.5 px-5 rounded-xl transition"
                 >
-                  Explorar Catálogo
+                  Ver Catálogo
                 </Link>
               </div>
             ) : (
               items.map((item) => (
                 <div 
                   key={item.id} 
-                  className="flex gap-4 p-3 bg-slate-50 rounded-2xl border border-slate-200 relative group"
+                  className="flex gap-3 p-3 bg-slate-50 rounded-2xl border border-slate-200 relative"
                 >
                   <img 
                     src={item.imagen} 
                     alt={item.nombre} 
-                    className="w-16 h-16 object-cover rounded-xl bg-slate-200 shrink-0 border border-slate-200"
+                    className="w-14 h-14 object-cover rounded-xl bg-slate-200 shrink-0 border border-slate-200"
                     onError={(e) => { (e.target as HTMLElement).style.display = 'none'; }}
                   />
 
@@ -81,7 +80,7 @@ export default function CartDrawer() {
                       ${item.precio.toLocaleString("es-CO")} COP / {item.unidad}
                     </span>
 
-                    {/* Controles de cantidad (+ / -) */}
+                    {/* Controles de cantidad */}
                     <div className="flex items-center gap-2 mt-2">
                       <button
                         onClick={() => actualizarCantidad(item.id, item.cantidad - 10)}
@@ -101,7 +100,6 @@ export default function CartDrawer() {
                     </div>
                   </div>
 
-                  {/* Botón eliminar */}
                   <button
                     onClick={() => eliminarDelCarrito(item.id)}
                     className="absolute top-3 right-3 text-slate-400 hover:text-red-600 p-1"
@@ -114,32 +112,29 @@ export default function CartDrawer() {
             )}
           </div>
 
-          {/* PIE DEL CARRITO (SUBTOTAL Y BOTÓN CHECKOUT) */}
+          {/* PIE DEL CARRITO */}
           {items.length > 0 && (
-            <div className="p-6 border-t border-slate-200 bg-slate-50 space-y-4">
-              <div className="flex justify-between items-baseline font-mono">
-                <span className="text-xs text-slate-600 uppercase font-bold">Subtotal Mercancía:</span>
+            <div className="p-5 border-t border-slate-200 bg-slate-50 space-y-3 font-mono">
+              <div className="flex justify-between items-baseline">
+                <span className="text-xs text-slate-600 uppercase font-bold">Subtotal:</span>
                 <span className="text-xl font-black text-[#1B4332]">
                   ${subtotal.toLocaleString("es-CO")} COP
                 </span>
               </div>
-              <p className="text-[10px] text-slate-400 font-mono">
-                *Flete especializado liquidado en el siguiente paso según destino.
-              </p>
 
-              <div className="space-y-2">
+              <div className="space-y-2 pt-2">
                 <Link
                   href="/checkout"
                   onClick={() => setDrawerAbierto(false)}
-                  className="w-full bg-[#1B4332] hover:bg-[#143326] text-white font-bold py-3.5 px-4 rounded-xl text-xs uppercase font-mono flex items-center justify-center gap-2 transition shadow-md"
+                  className="w-full bg-[#1B4332] hover:bg-[#143326] text-white font-bold py-3.5 px-4 rounded-xl text-xs uppercase flex items-center justify-center gap-2 transition shadow-md"
                 >
-                  Finalizar Pedido Multi-Producto <ArrowRight className="w-4 h-4" />
+                  Finalizar Pedido ({totalItems} uds) <ArrowRight className="w-4 h-4" />
                 </Link>
                 <button
                   onClick={() => setDrawerAbierto(false)}
-                  className="w-full text-center text-xs text-slate-500 hover:text-slate-800 font-semibold py-1 block"
+                  className="w-full text-center text-xs text-slate-500 hover:text-slate-800 font-semibold py-1 block font-sans"
                 >
-                  Seguir Comprando en el Catálogo
+                  Seguir Comprando
                 </button>
               </div>
             </div>
