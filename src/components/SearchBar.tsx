@@ -75,7 +75,7 @@ export default function SearchBar() {
             setAbierto(true);
           }}
           onFocus={() => setAbierto(true)}
-          placeholder="Buscar estibas, maderas, cobre, muebles..."
+          placeholder="Buscar..."
           className="w-full bg-slate-100 hover:bg-slate-200/70 focus:bg-white border border-slate-200 focus:border-[#1B4332] rounded-full py-2 pl-9 pr-8 text-xs font-medium text-slate-800 focus:outline-none transition"
         />
         {query && (
