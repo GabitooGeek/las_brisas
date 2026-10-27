@@ -44,8 +44,14 @@ export default function Navbar() {
           <Link href="/metales-remates" className="text-slate-800 hover:text-amber-800 transition">
             Metales & Remates
           </Link>
-          <Link href="/esmeraldas" className="text-emerald-800 hover:text-emerald-900 transition">
-            💎 Esmeraldas
+          {/* POR ESTO (Gema Verde Fino): */}
+          <Link href="/esmeraldas" className="text-emerald-800 hover:text-emerald-900 transition flex items-center gap-1.5 font-bold">
+            <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none">
+              <path d="M6 3h12l4 7-10 11L2 10l4-7z" fill="#10B981" stroke="#047857" strokeWidth="1.5" strokeLinejoin="round"/>
+              <path d="M2 10h20M12 21L8 10l4-7 4 7-4 11z" stroke="#065F46" strokeWidth="1.2" opacity="0.6"/>
+              <path d="M6 3l2 7M18 3l-2 7" stroke="#6EE7B7" strokeWidth="1.2" opacity="0.9"/>
+            </svg>
+            <span>Esmeraldas</span>
           </Link>
           <Link href="/cubicador" className="hover:text-[#1B4332] transition">
             Cubicador
@@ -118,13 +124,17 @@ export default function Navbar() {
             onClick={() => setMenuAbierto(false)}
             className="block p-3 rounded-2xl bg-slate-50 hover:bg-emerald-50 text-emerald-900"
           >
-            💎 Esmeraldas Certificadas RUCOM
-          </Link>
-          <Link
-            href="/cubicador"
+           <Link
+            href="/esmeraldas"
             onClick={() => setMenuAbierto(false)}
-            className="block p-3 rounded-2xl bg-slate-50 hover:bg-slate-100 text-slate-700"
+            className="p-3 rounded-2xl bg-slate-50 hover:bg-emerald-50 text-emerald-900 flex items-center gap-2"
           >
+            <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none">
+              <path d="M6 3h12l4 7-10 11L2 10l4-7z" fill="#10B981" stroke="#047857" strokeWidth="1.5" strokeLinejoin="round"/>
+              <path d="M2 10h20M12 21L8 10l4-7 4 7-4 11z" stroke="#065F46" strokeWidth="1.2" opacity="0.6"/>
+            </svg>
+            <span>Esmeraldas Colombianas Certificadas (RUCOM)</span>
+          </Link>
             📐 Calculadora de Cubicaje ($m^3$)
           </Link>
 

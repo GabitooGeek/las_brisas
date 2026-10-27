@@ -211,8 +211,13 @@ export default function HomePage() {
             className="bg-white rounded-3xl p-5 border border-slate-200 shadow-xs hover:shadow-md transition flex flex-col justify-between group"
           >
             <div>
-              <div className="h-48 rounded-2xl mb-4 bg-emerald-950/10 border border-emerald-200 flex items-center justify-center text-5xl">
-                💎
+              {/* CAMBIAR EL CUADRO DE LA GEMA POR ESTE: */}
+              <div className="h-48 rounded-2xl mb-4 bg-emerald-950/10 border border-emerald-200 flex items-center justify-center">
+                <svg className="w-16 h-16" viewBox="0 0 24 24" fill="none">
+                  <path d="M6 3h12l4 7-10 11L2 10l4-7z" fill="#10B981" stroke="#047857" strokeWidth="1.2" strokeLinejoin="round"/>
+                  <path d="M2 10h20M12 21L8 10l4-7 4 7-4 11z" stroke="#065F46" strokeWidth="1" opacity="0.5"/>
+                  <path d="M6 3l2 7M18 3l-2 7" stroke="#A7F3D0" strokeWidth="1" opacity="0.9"/>
+                </svg>
               </div>
               <span className="text-[10px] font-mono font-bold text-emerald-900 bg-emerald-50 px-2.5 py-1 rounded-md">
                 RUCOM • MINMINAS
